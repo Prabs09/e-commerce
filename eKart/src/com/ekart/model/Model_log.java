@@ -3,6 +3,8 @@ package com.ekart.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import com.ekart.bean.Bean_log;
 public class Model_log {
 private String dbURL;
@@ -84,5 +86,30 @@ public int create(Bean_log b)
 			System.out.println("Model_log()-> create()");
 		}
 		return rs;
+}
+
+public String user(String email, String pass)
+{
+	String str=null;
+	String query="Select user from log where email=? and password=? ";
+	try
+	{
+		Class.forName(dbDriver);
+		con=DriverManager.getConnection(dbURL,dbUser,dbPassword);
+		st=con.prepareStatement(query);
+		st.setString(1, email);
+		st.setString(2, pass);
+		ResultSet rs=st.executeQuery();
+		str=rs.getString(1);
+		st.close();
+		con.close();
+		return str;
+	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+		System.out.println("Model_log-> validate()");
+	}
+	return str;
 }
 }

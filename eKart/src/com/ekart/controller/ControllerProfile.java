@@ -23,10 +23,10 @@ public class ControllerProfile extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 		HttpSession session= request.getSession();
-		String email=(String) session.getAttribute("email");
-		infoB=infoM.getprofile(email);
+		String str=(String) session.getAttribute("user");
+		infoB=infoM.getprofile(str);
 		session.setAttribute("info", infoB);
-		RequestDispatcher rd=request.getRequestDispatcher("showprofile.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/showprofile.jsp");
 		rd.forward(request, response);
 		
 	}

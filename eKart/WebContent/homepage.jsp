@@ -12,6 +12,7 @@
 		String chk=request.getParameter("reg");
 		if(chk.equalsIgnoreCase("false"))
 			out.print("Registration failed. Re-register!!");
+	 
 %>
 </body>
 </html>

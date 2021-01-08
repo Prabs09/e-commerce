@@ -21,6 +21,7 @@ public class ControllerLogin extends HttpServlet {
 	String userpass;
 	Model_log logM;
 	HttpSession session;
+	String str;
 	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -36,10 +37,11 @@ public class ControllerLogin extends HttpServlet {
 				
 				if(logM.validate(useremail, userpass))
 				{	
+					str=logM.user(useremail, userpass);
 					session=req.getSession();
 					session.setAttribute("logchk", true);
 					session.setAttribute("login", 1);
-					session.setAttribute("email", useremail);
+					session.setAttribute("user", str);
 					RequestDispatcher rd=req.getRequestDispatcher("login_succ.jsp");
 					rd.forward(req, res);
 				}

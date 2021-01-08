@@ -39,24 +39,27 @@ public void setDbDriver(String dbDriver) {
 	this.dbDriver = dbDriver;
 }
 
-public Bean_info getprofile(String usermail)
+public Bean_info getprofile(String username)
 {		
-		String query="Select * from info where email = usermail";
+		String query="Select * from info where user = username";
 		try
 		{
 			Class.forName(dbDriver);
 			Connection con=DriverManager.getConnection(dbURL,dbUser,dbPassword);
 			Statement st=con.createStatement();
 			ResultSet rs=st.executeQuery(query);
+			while(rs.next())
+			{
 			infoB.setAddress(rs.getString("address"));
 			infoB.setContact(rs.getString("contact"));
 			infoB.setEmail(rs.getString("email"));
 			infoB.setFirstname(rs.getString("firstname"));
 			infoB.setLastname(rs.getString("lastname"));
 			infoB.setPincode(rs.getString("pincode"));
-			infoB.setUser(rs.getString("user"));
+//			infoB.setUser(rs.getString("user"));
 			st.close();
 			con.close();
+			}
 			return infoB;
 		}
 		catch (Exception e)
