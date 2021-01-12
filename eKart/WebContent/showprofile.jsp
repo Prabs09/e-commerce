@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ include file="profileheader.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <style>
-.text
+table,th,td
 {
-	text-size:25px;
+	border:2px solid black;
+	border-collapse: collapse;
+}
+table.center
+{
+margin-left: auto;
+margin-right: auto;
 }
 </style>
 <meta charset="ISO-8859-1">
@@ -14,9 +21,9 @@
 </head>
 <body>
 <div class="text">
-Welcome ${user} 
+Welcome ${user}, 
 </div>
-<table>
+<table class="center">
 <tr>
 	<th>Fields</th>
 	<th>Records</th>
@@ -50,8 +57,11 @@ Welcome ${user}
 	<td>email</td>
 	<td>${info.getEmail()}</td>
 </tr>
-
 </table> 
+
+<form action="newprofile.jsp" method="post">
+<input type="submit" value="add profile">
+</form>
 
 </body>
 </html>

@@ -25,7 +25,8 @@
 <br><br>
 <input type="submit" value="submit">
 <button type="reset">Clear</button>
-</form>
+</form><br>
+Don't have an id ? <a href="register.jsp"> click here</a> to create one.
 
 </body>
 </html>

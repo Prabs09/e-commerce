@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ include file="profileheader.jsp" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>User Profile</title>
-</head>
 <body>
 
 <%
@@ -19,8 +16,6 @@
 <form action="<%=request.getContextPath()%>/profile" method="get">
 <input type="submit" value="show profile">
 </form>
-<form action="newprofile.jsp" method="post">
-<input type="submit" value="add profile">
-</form>
+
 </body>
 </html>
