@@ -31,21 +31,15 @@ public class ControllerRegister extends HttpServlet {
 		logB.setUser(req.getParameter("user"));
 		logB.setEmail(req.getParameter("email"));
 		logB.setPassword(req.getParameter("pass"));
-		String useremail=req.getParameter("email");
 		inschk=logM.create(logB);
 		if(inschk==1)
 		{
-			HttpSession session=req.getSession();
-			session.setAttribute("reg", true);
-			session.setAttribute("login", "1");
-			session.setAttribute("email", useremail);
-			RequestDispatcher rd=req.getRequestDispatcher("login_succ.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("homepage.jsp");
 			rd.forward(req, res);
 		}
 		else
 		{	
-			req.setAttribute("reg", false);
-			RequestDispatcher rd=req.getRequestDispatcher("homepage.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("error_homepage.jsp");
 			rd.forward(req, res);
 		}
 		

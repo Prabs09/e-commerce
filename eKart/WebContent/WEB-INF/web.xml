@@ -7,7 +7,7 @@
   
   <context-param>
   <param-name>dbURL</param-name>
-  <param-value>jdbc:mysql://localhost:3306/ekart</param-value>
+  <param-value>jdbc:mysql://localhost/ekart</param-value>
   </context-param>
   
   <context-param>	
@@ -24,4 +24,15 @@
   	<param-name>dbDriver</param-name>
   	<param-value>com.mysql.cj.jdbc.Driver</param-value>
   </context-param>
+  
+  <filter>
+  	<filter-name>login</filter-name>
+  	<filter-class>com.ekart.filters.Loginchk</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>login</filter-name>
+	<url-pattern>/login.jsp</url-pattern>
+  </filter-mapping>
+  
 </web-app>

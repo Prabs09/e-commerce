@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Successfully Logged in</title>
 </head>
 <body>
 <h3 align=right> <a href="logout.jsp">logout</a> <a href="profile.jsp">profile</a></h3>

@@ -27,10 +27,12 @@ public class ControllerLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 					
 		ServletContext cd=getServletContext();
+		logM=new Model_log();
 		logM.setDbURL(cd.getInitParameter("dbURL"));
 		logM.setDbPassword(cd.getInitParameter("dbPassword"));
 		logM.setDbUser(cd.getInitParameter("dbUser"));
 		logM.setDbDriver(cd.getInitParameter("dbDriver"));
+		
 		
 				useremail=req.getParameter("email");
 				userpass=req.getParameter("pass");
@@ -49,7 +51,7 @@ public class ControllerLogin extends HttpServlet {
 				{
 					session=req.getSession();
 					session.setAttribute("logchk", false);
-					RequestDispatcher rd=req.getRequestDispatcher("login.jsp");
+					RequestDispatcher rd=req.getRequestDispatcher("homepage.jsp");
 					rd.forward(req, res);
 				
 				}

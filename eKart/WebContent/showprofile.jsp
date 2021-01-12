@@ -3,12 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.text
+{
+	text-size:25px;
+}
+</style>
 <meta charset="ISO-8859-1">
 <title>Your Profile</title>
 </head>
 <body>
-
-<h3>Welcome ${info.getUser()} </h3>
+<div class="text">
+Welcome ${user} 
+</div>
 <table>
 <tr>
 	<th>Fields</th>

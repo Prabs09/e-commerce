@@ -7,7 +7,7 @@
 <title>New Profile</title>
 </head>
 <body>
-<form action="\profile" method="post">
+<form action="/profile" method="post">
 
 <label for="fname">First Name:</label>
 <input type="text" id="fname" name="fname">

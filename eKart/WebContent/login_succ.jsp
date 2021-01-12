@@ -3,10 +3,6 @@
 <%@ include file="loginheader.jsp" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>successfully logged in</title>
-</head>
 <body>
 <%
 	int check=(int) session.getAttribute("login");
@@ -14,6 +10,8 @@
 	{
 		response.sendRedirect("homepage.jsp");
 	}
+	
 %>
+Welcome ${user}
 </body>
 </html>

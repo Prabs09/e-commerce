@@ -16,11 +16,11 @@
 	}
 %>
 
-<form action="/profile" method="get">
-<button type="button">show profile</button>
+<form action="<%=request.getContextPath()%>/profile" method="get">
+<input type="submit" value="show profile">
 </form>
 <form action="newprofile.jsp" method="post">
-<button type="button">add profile</button>
+<input type="submit" value="add profile">
 </form>
 </body>
 </html>

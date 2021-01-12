@@ -3,6 +3,7 @@ package com.ekart.controller;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,9 +22,17 @@ public class ControllerProfile extends HttpServlet {
 	boolean chk;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-		HttpSession session= request.getSession();
+		
+		infoM=new Model_info();
+		ServletContext cg=getServletContext();
+		infoM.setDbDriver(cg.getInitParameter("dbDriver"));
+		infoM.setDbUser(cg.getInitParameter("dbUser"));
+		infoM.setDbURL(cg.getInitParameter("dbURL"));
+		infoM.setDbPassword(cg.getInitParameter("dbPassword"));
+		
+		HttpSession session= request.getSession(false);
 		String str=(String) session.getAttribute("user");
+		System.out.println(str);
 		infoB=infoM.getprofile(str);
 		session.setAttribute("info", infoB);
 		RequestDispatcher rd=request.getRequestDispatcher("/showprofile.jsp");

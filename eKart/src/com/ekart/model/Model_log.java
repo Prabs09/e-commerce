@@ -42,7 +42,7 @@ public void setDbDriver(String dbDriver) {
 
 public boolean validate(String email, String pass)
 {	boolean rs=false;
-	String query="Select email,password from log where email=? and password=? ";
+	String query="select * from log where email=? and password=? ";
 	try
 	{
 		Class.forName(dbDriver);
@@ -50,7 +50,7 @@ public boolean validate(String email, String pass)
 		st=con.prepareStatement(query);
 		st.setString(1, email);
 		st.setString(2, pass);
-		rs=st.execute();
+		rs =st.execute();
 		st.close();
 		con.close();
 		return rs;
@@ -91,7 +91,7 @@ public int create(Bean_log b)
 public String user(String email, String pass)
 {
 	String str=null;
-	String query="Select user from log where email=? and password=? ";
+	String query="select user from log where email=? and password=? ";
 	try
 	{
 		Class.forName(dbDriver);
@@ -100,7 +100,8 @@ public String user(String email, String pass)
 		st.setString(1, email);
 		st.setString(2, pass);
 		ResultSet rs=st.executeQuery();
-		str=rs.getString(1);
+		while(rs.next())
+			str=rs.getString(1);
 		st.close();
 		con.close();
 		return str;
@@ -108,7 +109,7 @@ public String user(String email, String pass)
 	catch(Exception e)
 	{
 		e.printStackTrace();
-		System.out.println("Model_log-> validate()");
+		System.out.println("Model_log-> user()");
 	}
 	return str;
 }

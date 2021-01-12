@@ -9,21 +9,21 @@
 </head>
 <body>
 
-<%
+<%--<%
 		Boolean str=(Boolean) session.getAttribute("logchk");
 		if(str)
 			response.sendRedirect("login_succ.jsp");
 		else
 			out.print("error login, check your credentials again");
-%>
+--%>
 
-<form action="/login">
+<form action="<%=request.getContextPath()%>/login" method="post">
 <label for="email" inputmode="email">Id:</label>
 <input type="email" id="email" name="email">
 <label for="pass">Password:</label>
 <input type="password" id="pass" name="pass">
 <br><br>
-<button type="submit">Log In</button>
+<input type="submit" value="submit">
 <button type="reset">Clear</button>
 </form>
 

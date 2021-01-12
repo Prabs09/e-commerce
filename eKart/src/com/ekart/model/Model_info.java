@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 import com.ekart.bean.Bean_info;
 
@@ -41,13 +40,16 @@ public void setDbDriver(String dbDriver) {
 
 public Bean_info getprofile(String username)
 {		
-		String query="Select * from info where user = username";
+		String query="Select * from info where user=?";
 		try
 		{
+
+			infoB=new Bean_info();
 			Class.forName(dbDriver);
 			Connection con=DriverManager.getConnection(dbURL,dbUser,dbPassword);
-			Statement st=con.createStatement();
-			ResultSet rs=st.executeQuery(query);
+			PreparedStatement st=con.prepareStatement(query);
+			st.setString(1, username);
+			ResultSet rs=st.executeQuery();
 			while(rs.next())
 			{
 			infoB.setAddress(rs.getString("address"));
@@ -56,10 +58,9 @@ public Bean_info getprofile(String username)
 			infoB.setFirstname(rs.getString("firstname"));
 			infoB.setLastname(rs.getString("lastname"));
 			infoB.setPincode(rs.getString("pincode"));
-//			infoB.setUser(rs.getString("user"));
+			}
 			st.close();
 			con.close();
-			}
 			return infoB;
 		}
 		catch (Exception e)
