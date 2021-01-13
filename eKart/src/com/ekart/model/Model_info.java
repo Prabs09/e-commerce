@@ -73,7 +73,7 @@ public Bean_info getprofile(String username)
 
 public boolean addprofile(Bean_info bean)
 {
-	String query="insert into info(firstname, lastname, contact, address, pincode) values(?,?,?,?,?)";
+	String query="update info(firstname, lastname, contact, address, pincode) values(?,?,?,?,?)";
 	boolean rs=false;
 	try
 	{

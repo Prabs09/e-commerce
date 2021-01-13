@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ include file="headers.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>E-kart</title>
+<title>User Profile</title>
 </head>
 <body>
-<%@include file="content.jsp" %>
-Login to buy this item.
+<h3 align=right> <a href="login_succ.jsp">Back</a> </h3>
+	<h1 align=center>E-KART</h1>
 </body>
 </html>

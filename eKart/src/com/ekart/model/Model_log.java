@@ -66,7 +66,7 @@ public boolean validate(String email, String pass)
 public int create(Bean_log b)
 {		
 		int rs=0;
-		String query="insert into log value ?,?,?";
+		String query="insert into log values ?,?,?";
 		try
 		{
 			Class.forName(dbDriver);
@@ -75,7 +75,11 @@ public int create(Bean_log b)
 			st.setString(1, b.getUser());
 			st.setString(2, b.getEmail());
 			st.setString(3, b.getPassword());
-			rs=st.executeUpdate();
+			System.out.println(b.getUser());
+			System.out.println(b.getEmail());
+			System.out.println(b.getPassword());
+			st.executeUpdate();
+			rs=st.getUpdateCount();
 			st.close();
 			con.close();
 			return rs;

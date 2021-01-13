@@ -43,6 +43,8 @@ public class ControllerProfile extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		infoB=new Bean_info();
+		infoM=new Model_info();
 		infoB.setAddress(request.getParameter("address"));
 		infoB.setContact(request.getParameter("contact"));
 		infoB.setFirstname(request.getParameter("fname"));

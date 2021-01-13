@@ -24,8 +24,8 @@
 <label for="pincode">pincode:</label>
 <input type="text" id="pincode" name="pincode">
 
-<button type="submit">Submit</button>
-<button type="reset">reset</button>
+<input type="submit" value="submit">
+<input type="reset" value="clear">
 </form>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/register">
+<form action="<%=request.getContextPath()%>/register" method="post">
 <label for="user">User:</label>
 <input type="text" id="user" name="user">
 <label for="email">Email:</label>
@@ -16,8 +16,8 @@
 <label for="pass">Password:</label>
 <input type="password" id="pass" name="pass">
 <br><br>
-<button type="submit">Sign up</button>
-<button type="reset">Clear</button>
+<input type="submit" value="sign up">
+<input type="reset" value="Clear">
 </form>
 </body>
 </html>

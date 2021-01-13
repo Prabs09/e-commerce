@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.ekart.bean.*;
 import com.ekart.model.Model_log;
@@ -23,16 +22,18 @@ public class ControllerRegister extends HttpServlet {
    private int inschk=0;
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		ServletContext ct=getServletContext();
+		logM=new Model_log();
 		logM.setDbDriver(ct.getInitParameter("dbDriver"));
 		logM.setDbURL(ct.getInitParameter("dbURL"));
 		logM.setDbUser(ct.getInitParameter("dbUser"));
 		logM.setDbPassword(ct.getInitParameter("dbPassword"));
 		
+		logB=new Bean_log();
 		logB.setUser(req.getParameter("user"));
 		logB.setEmail(req.getParameter("email"));
 		logB.setPassword(req.getParameter("pass"));
 		inschk=logM.create(logB);
-		if(inschk==1)
+		if(inschk>0)
 		{
 			RequestDispatcher rd=req.getRequestDispatcher("homepage.jsp");
 			rd.forward(req, res);

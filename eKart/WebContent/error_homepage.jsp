@@ -8,7 +8,6 @@
 <title>E-kart</title>
 </head>
 <body>
-<%@include file="content.jsp" %>
-Login to buy this item.
+There was an error while registering.
 </body>
 </html>
